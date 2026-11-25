@@ -1,0 +1,7 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Students | Code Quest</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><header class="topbar"><a class="brand" th:href="@{/}"><span class="brand-mark small-mark">CQ</span><span>Code Quest</span></a><nav><a th:href="@{/}">Dashboard</a></nav></header>
+<main class="container narrow"><section class="welcome"><div><p class="eyebrow">PEER DISCOVERY</p><h1>Find students by skill</h1><p class="muted">Search for classmates with a skill you are interested in.</p></div></section>
+<div class="panel"><form method="get" th:action="@{/students}" class="inline-form"><input name="skill" th:value="${skill}" placeholder="Search a skill, e.g. Python" required><button class="btn primary">Search</button></form></div>
+<section class="section"><div class="panel table-wrap"><table><thead><tr><th>Student</th><th>Department</th><th>Year</th><th>Skill level</th></tr></thead><tbody><tr th:each="ss : ${matches}"><td><strong th:text="${ss.student.name}">Name</strong><br><small class="muted" th:text="${ss.student.email}">email</small></td><td th:text="${ss.student.department}">IT</td><td th:text="${ss.student.yearOfStudy}">2</td><td><span class="tag" th:text="${ss.proficiencyLevel}">Advanced</span></td></tr><tr th:if="${#lists.isEmpty(matches)}"><td colspan="4" class="muted">Enter a skill above to view matching students.</td></tr></tbody></table></div></section></main></body></html>

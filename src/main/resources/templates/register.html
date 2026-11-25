@@ -1,0 +1,10 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register | Code Quest</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body class="auth-bg"><main class="auth-card wide"><div class="brand-mark">CQ</div><p class="eyebrow">CODE QUEST</p><h1>Create your account</h1><p class="muted">Join the student skill and internship community.</p>
+<div class="alert error" th:if="${error}" th:text="${error}"></div>
+<form th:action="@{/register}" method="post" class="form-grid">
+<div class="field"><label>Full name</label><input name="name" required></div><div class="field"><label>Email</label><input type="email" name="email" required></div>
+<div class="field"><label>Password (minimum 8 characters)</label><input type="password" name="password" minlength="8" required></div><div class="field"><label>Department</label><input name="department" placeholder="Information Technology"></div>
+<div class="field"><label>Year of study</label><input type="number" name="yearOfStudy" min="1" max="8"></div><div class="field"><label>Phone</label><input name="phone"></div>
+<button class="btn primary full span-2" type="submit">Create account</button></form><p class="small-center">Already registered? <a th:href="@{/login}">Sign in</a></p></main></body></html>

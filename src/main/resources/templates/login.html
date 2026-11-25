@@ -1,0 +1,7 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Code Quest</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body class="auth-bg"><main class="auth-card"><div class="brand-mark">CQ</div><p class="eyebrow">CODE QUEST</p><h1>Welcome back</h1><p class="muted">Sign in to your student platform.</p>
+<div class="alert error" th:if="${param.error}">Invalid email or password.</div><div class="alert success" th:if="${success}" th:text="${success}"></div><div class="alert" th:if="${param.logout}">You have been logged out.</div>
+<form th:action="@{/login}" method="post"><label>Email</label><input type="email" name="username" required placeholder="you@example.com"><label>Password</label><input type="password" name="password" required placeholder="Your password"><button class="btn primary full" type="submit">Sign in</button></form>
+<p class="small-center">New here? <a th:href="@{/register}">Create an account</a></p></main></body></html>
